@@ -124,3 +124,9 @@ Production deploys use a concurrency group with `cancel-in-progress: false`, so 
 ## Supabase setup
 
 Создайте PostgreSQL project в Supabase и используйте Session Pooler connection string для IPv4. Передайте этот URL в Render и GitHub Secret `DATABASE_URL`. Supabase SDK не требуется: приложение работает с Supabase как с обычным PostgreSQL через SQLAlchemy.
+
+## Personal assistant domain
+
+The current domain includes notes, tasks/reminders, debts, events, ideas and assistant message history. The entity model and assistant API are documented in [docs/assistant.md](docs/assistant.md).
+
+The assistant uses a configurable free-provider chain: local Ollama first, then Gemini free tier and OpenRouter `openrouter/free`. Provider keys and model names are environment variables. LLM actions are returned as drafts and are not written to financial or calendar data without a future confirmation step.

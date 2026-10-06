@@ -24,6 +24,14 @@ services:
       LOG_LEVEL: INFO
       DATABASE_URL: postgresql+psycopg://postgres:postgres@db:5432/userlife
       PORT: 8000
+      LLM_ENABLED: ${LLM_ENABLED:-false}
+      LLM_PROVIDERS: ${LLM_PROVIDERS:-ollama,gemini,openrouter}
+      LLM_OLLAMA_BASE_URL: ${LLM_OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      LLM_OLLAMA_MODEL: ${LLM_OLLAMA_MODEL:-llama3.2:3b}
+      LLM_GEMINI_API_KEY: ${LLM_GEMINI_API_KEY:-}
+      LLM_GEMINI_MODEL: ${LLM_GEMINI_MODEL:-gemini-2.5-flash}
+      LLM_OPENROUTER_API_KEY: ${LLM_OPENROUTER_API_KEY:-}
+      LLM_OPENROUTER_MODEL: ${LLM_OPENROUTER_MODEL:-openrouter/free}
     ports:
       - "8000:8000"
 

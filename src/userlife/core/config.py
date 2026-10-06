@@ -9,6 +9,17 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     port: int = 8000
     database_url: str = "postgresql+psycopg://postgres:postgres@db:5432/userlife"
+    llm_enabled: bool = False
+    llm_providers: str = "ollama,gemini,openrouter"
+    llm_timeout_seconds: float = 30.0
+    llm_ollama_base_url: str = "http://host.docker.internal:11434"
+    llm_ollama_model: str = "llama3.2:3b"
+    llm_gemini_api_key: str | None = None
+    llm_gemini_model: str = "gemini-2.5-flash"
+    llm_openrouter_api_key: str | None = None
+    llm_openrouter_model: str = "openrouter/free"
+    llm_openrouter_site_url: str = "http://localhost:8000"
+    llm_openrouter_app_name: str = "userlife"
 
     model_config = SettingsConfigDict(
         env_file=".env",
